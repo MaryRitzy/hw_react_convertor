@@ -9,39 +9,23 @@ type Props = {
     buttonChangeSignPlz: () => void
 }
 const ExchangeData = ({
-    buttonChangeSignUah,
     buttonChangeSignEuro,
+    buttonChangeSignUah,
     buttonChangeSignUsd,
     buttonChangeSignPlz,
 }: Props) => {
     return (
         <CardActions className="exchange">
-            <Button
-                variant="outlined"
-                /* onClick={() => addButtonChange('USD', 1.07)}*/
-                onClick={buttonChangeSignUsd}
-            >
+            <Button variant="outlined" onClick={buttonChangeSignUsd}>
                 USD
             </Button>
-            <Button
-                variant="outlined"
-                /* onClick={() => addButtonChange('EURO', 1)}*/
-                onClick={buttonChangeSignEuro}
-            >
+            <Button variant="outlined" onClick={buttonChangeSignEuro}>
                 EURO
             </Button>
-            <Button
-                variant="outlined"
-                /*onClick={() => addButtonChange('UAH', 40)}*/
-                onClick={buttonChangeSignUah}
-            >
+            <Button variant="outlined" onClick={buttonChangeSignUah}>
                 UAH
             </Button>
-            <Button
-                variant="outlined"
-                /*onClick={() => addButtonChange('PLN', 4.7)}*/
-                onClick={buttonChangeSignPlz}
-            >
+            <Button variant="outlined" onClick={buttonChangeSignPlz}>
                 PLN
             </Button>
         </CardActions>
