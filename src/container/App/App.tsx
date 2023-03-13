@@ -2,7 +2,7 @@ import './App.scss'
 import ProductsList from 'components/ProductsList/ProductsList'
 import { Typography } from '@mui/material'
 import ExchangeCurrency from 'components/ExchangeCurrency/ExchangeCurrency'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import CartData from 'components/CartData/CartData'
 
 type Props = {}

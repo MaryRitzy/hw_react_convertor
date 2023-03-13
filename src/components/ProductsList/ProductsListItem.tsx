@@ -6,7 +6,6 @@ type Props = {
     id: number
     title: string
     description: string
-    currency: string
     price: number
     image: string
     currencySign: string

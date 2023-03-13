@@ -17,7 +17,7 @@ const ProductsList = ({
         <>
             <Grid container spacing={3}>
                 {productsArray.map(
-                    ({ id, title, description, price, currency, image }) => (
+                    ({ id, title, description, price, image }) => (
                         <Grid item xs={12} sm={6} md={4} key={id}>
                             {' '}
                             <ProductsListItem
@@ -26,7 +26,6 @@ const ProductsList = ({
                                 title={title}
                                 description={description}
                                 price={price}
-                                currency={currency}
                                 addProductToCart={addProductToCart}
                                 currencySign={currencySign}
                                 changeModul={changeModul}
