@@ -7,8 +7,13 @@ type Props = {
     productsObject?: {
         [id: number]: Product
     }
+
+    currencySign: string
+    changeModul: number
 }
 const CartData = ({
+    changeModul,
+    currencySign,
     productsInCart,
     productsObject = getProductsObject(productsArray),
 }: Props) => {
@@ -19,10 +24,11 @@ const CartData = ({
                 (total, productId) =>
                     total +
                     productsObject[parseInt(productId)].price *
-                        productsInCart[parseInt(productId)],
+                        productsInCart[parseInt(productId)] *
+                        changeModul,
                 0
             )}{' '}
-            €
+            {currencySign}
         </div>
     )
 }

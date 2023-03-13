@@ -7,26 +7,33 @@ import CartData from 'components/CartData/CartData'
 
 type Props = {}
 
-type ChengeCurrencyProps = {
-    totalCurrenty: string
-    totalPrice: number
-}
-
 type ProductsInCart = {
     [id: number]: number
 }
 
 const App = (props: Props) => {
-    const [currencyData, setCurrencyData] = useState<ChengeCurrencyProps>({
-        totalCurrenty: 'EUR',
-        totalPrice: 1,
-    })
+    const [currencySign, setcurrencySign] = useState<string>('EUR')
 
-    const addButtonChange = (totalCurrenty: string, price: number) => {
-        setCurrencyData(() => ({
-            totalCurrenty: totalCurrenty,
-            totalPrice: price,
-        }))
+    const [changeModul, setchangeModul] = useState<number>(1)
+
+    const buttonChangeSignEuro = () => {
+        setcurrencySign(() => 'EUR')
+        setchangeModul(1)
+    }
+
+    const buttonChangeSignUsd = () => {
+        setcurrencySign(() => 'USD')
+        setchangeModul(1.07)
+    }
+
+    const buttonChangeSignUah = () => {
+        setcurrencySign(() => 'UAH')
+        setchangeModul(40)
+    }
+
+    const buttonChangeSignPlz = () => {
+        setcurrencySign(() => 'PLZ')
+        setchangeModul(4.7)
     }
 
     const [productsInCart, setProductInCart] = useState<ProductsInCart>({
@@ -45,12 +52,22 @@ const App = (props: Props) => {
             <Typography variant="h2" align="center" className="title">
                 Our shop page
             </Typography>
-            <ExchangeCurrency addButtonChange={addButtonChange} />
-            <ProductsList
-                currencyData={currencyData}
-                addProductToCart={addProductToCart}
+            <ExchangeCurrency
+                buttonChangeSignEuro={buttonChangeSignEuro}
+                buttonChangeSignUsd={buttonChangeSignUsd}
+                buttonChangeSignUah={buttonChangeSignUah}
+                buttonChangeSignPlz={buttonChangeSignPlz}
             />
-            <CartData productsInCart={productsInCart} />
+            <ProductsList
+                addProductToCart={addProductToCart}
+                currencySign={currencySign}
+                changeModul={changeModul}
+            />
+            <CartData
+                productsInCart={productsInCart}
+                currencySign={currencySign}
+                changeModul={changeModul}
+            />
         </div>
     )
 }

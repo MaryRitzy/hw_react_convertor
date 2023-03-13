@@ -3,14 +3,16 @@ import ProductsListItem from './ProductsListItem'
 import productsArray from 'utils/productsArray'
 
 type Props = {
-    currencyData: {
-        totalCurrenty: string
-        totalPrice: number
-    }
+    currencySign: string
+    changeModul: number
     addProductToCart: (id: number, count: number) => void
 }
 
-const ProductsList = ({ currencyData, addProductToCart }: Props) => {
+const ProductsList = ({
+    addProductToCart,
+    currencySign,
+    changeModul,
+}: Props) => {
     return (
         <>
             <Grid container spacing={3}>
@@ -25,8 +27,9 @@ const ProductsList = ({ currencyData, addProductToCart }: Props) => {
                                 description={description}
                                 price={price}
                                 currency={currency}
-                                currencyData={currencyData}
                                 addProductToCart={addProductToCart}
+                                currencySign={currencySign}
+                                changeModul={changeModul}
                             />
                         </Grid>
                     )

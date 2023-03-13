@@ -1,8 +1,6 @@
 import { Button, Card, CardActions, CardContent } from '@mui/material'
 import './ProductsListItem.scss'
 import '../ExchangeCurrency/ExchangeCurrency'
-import '../PriceCurrency/PriceCurrency.tsx'
-import PriceCurrency from 'components/PriceCurrency/PriceCurrency'
 
 type Props = {
     id: number
@@ -11,12 +9,9 @@ type Props = {
     currency: string
     price: number
     image: string
-    currencyData: {
-        totalCurrenty: string
-        totalPrice: number
-    }
-
-    addProductToCart: (id: number, count: number) => void
+    currencySign: string
+    changeModul: number
+    addProductToCart: (id: number, count: number) => any
 }
 
 const ProductsListItem = ({
@@ -25,10 +20,12 @@ const ProductsListItem = ({
     description,
     price,
     image,
-    currency,
-    currencyData,
     addProductToCart,
+    currencySign,
+    changeModul,
 }: Props) => {
+    const updutePrice = price * changeModul
+
     return (
         <Card variant="outlined" className="product">
             <CardContent>
@@ -38,10 +35,8 @@ const ProductsListItem = ({
                 <div className="product-title">{title}</div>
                 <div className="product-desc">{description}</div>
                 <div className="product-price">
-                    {currency}:{price}
+                    {currencySign} : {updutePrice}
                 </div>
-
-                <PriceCurrency currencyData={currencyData} />
             </CardContent>
 
             <CardActions className="product-btn-wrap">
