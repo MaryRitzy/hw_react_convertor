@@ -32,7 +32,7 @@ const App = (props: Props) => {
     }
 
     const buttonChangeSignPlz = () => {
-        setcurrencySign(() => 'PLZ')
+        setcurrencySign(() => 'PLN')
         setchangeModul(4.7)
     }
 
